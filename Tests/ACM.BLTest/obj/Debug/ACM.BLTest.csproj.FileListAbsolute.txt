@@ -13,3 +13,5 @@ C:\Users\UNIVISTA-IT\Jonah Testing\Repos\ACM\Tests\ACM.BLTest\obj\Debug\ACM.BLTe
 C:\Users\UNIVISTA-IT\Jonah Testing\Repos\ACM\Tests\ACM.BLTest\obj\Debug\ACM.BLTest.csproj.CopyComplete
 C:\Users\UNIVISTA-IT\Jonah Testing\Repos\ACM\Tests\ACM.BLTest\obj\Debug\ACM.BLTest.dll
 C:\Users\UNIVISTA-IT\Jonah Testing\Repos\ACM\Tests\ACM.BLTest\obj\Debug\ACM.BLTest.pdb
+C:\Users\UNIVISTA-IT\Jonah Testing\Repos\ACM\Tests\ACM.BLTest\bin\Debug\Acme.Common.dll
+C:\Users\UNIVISTA-IT\Jonah Testing\Repos\ACM\Tests\ACM.BLTest\bin\Debug\Acme.Common.pdb

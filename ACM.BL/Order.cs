@@ -1,50 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ACM.BL
 {
-    class Order
+    public class Order : EnitityBase
     {
-        public DateTime OrderDate { get; set; }
-
-        public Order Retrieve(int customerId)
+        public Order() : this(0)
         {
-            // Code that retrieves the defined customer
-            return new Order();
+
+        }
+        public Order(int orderId)
+        {
+            OrderId = orderId;
+            OrderItems = new List<OrderItem>();
         }
 
-        /// <summary>
-        /// Retrieve all customers. 
-        /// </summary>
-        /// <returns></returns>
-        public List<Order> Retrieve()
-        {
-            // Code that retrieves all of the customers
+        public DateTimeOffset? OrderDate { get; set; }
+        public int OrderId { get; private set; }
+        public int CustomerId { get; set; }
+        public int ShippingAddressId { get; set; }
+        public List<OrderItem> OrderItems { get; set; }
 
-            return new List<Order>();
-        }
+        public override string ToString() => $"{OrderDate.Value.Date} ({OrderId})";
 
-        /// <summary>
-        /// Saves he current customer.
-        /// </summary>
-        /// <returns></returns>
-        public bool Save()
-        {
-            // Code that saves the defined customer
-
-            return true;
-        }
 
         /// <summary>
         /// Validates the customer data.
         /// </summary>
         /// <returns></returns>
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
+            if (OrderDate == null) isValid = false;
 
             return isValid;
         }

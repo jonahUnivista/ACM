@@ -1,12 +1,9 @@
-﻿using System;
+﻿using Acme.Common;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ACM.BL
 {
-    class Product
+    public class Product : EnitityBase, ILoggable
     {
         public Product()
         {
@@ -17,87 +14,36 @@ namespace ACM.BL
             ProductId = productId;
         }
 
-        public int ProductId { get; private set; }
+        public decimal? CurrentPrice { get; set; }
+        public string ProductDescription { get; set; }
+        public int ProductId { get; set; }
 
-        private string _firstName;
-        public string FirstName
+        private string _productName;
+
+        public string ProductName
         {
-            get
+            get 
             {
-                return _firstName;
+                return _productName.InserSpaces(); 
             }
-            set
-            {
-                _firstName = value;
-            }
+            set { _productName = value; }
         }
-        // Auto Implemented property, this is the same as above, only use the top way if you need specific logic in the implementation
-        public string LastName { get; set; }
-        public static int InstanceCount { get; set; }
+        public string Log() =>
+        $"{ProductId}: {ProductName} Detail: {ProductDescription} Status: {EntityState.ToString()})";
 
-        public string FullName
-        {
-            get
-            {
-                string fullName = LastName;
-                if (!string.IsNullOrWhiteSpace(FirstName))
-                {
-                    if (!string.IsNullOrWhiteSpace(fullName))
-                    {
-                        fullName += ", ";
+        public override string ToString() => ProductName;
 
-                    }
-                    fullName += FirstName;
-                }
-                return fullName;
-            }
-        }
-        public string EmailAddress { get; set; }
-        public string HomeAddress { get; set; }
-
-        /// <summary>
-        /// Retrieve the current Product.
-        /// </summary>
-        /// <param name="ProductId"></param>
-        /// <returns></returns>
-        public Product Retrieve(int ProductId)
-        {
-            // Code that retrieves the defined Product
-            return new Product();
-        }
-
-        /// <summary>
-        /// Retrieve all Products. 
-        /// </summary>
-        /// <returns></returns>
-        public List<Product> Retrieve()
-        {
-            // Code that retrieves all of the Products
-
-            return new List<Product>();
-        }
-
-        /// <summary>
-        /// Saves he current Product.
-        /// </summary>
-        /// <returns></returns>
-        public bool Save()
-        {
-            // Code that saves the defined Product
-
-            return true;
-        }
 
         /// <summary>
         /// Validates the Product data.
         /// </summary>
         /// <returns></returns>
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
 
-            if (string.IsNullOrWhiteSpace(LastName)) isValid = false;
-            if (string.IsNullOrWhiteSpace(EmailAddress)) isValid = false;
+            if (string.IsNullOrWhiteSpace(ProductName)) isValid = false;
+            if (CurrentPrice == null) isValid = false;
 
             return isValid;
         }

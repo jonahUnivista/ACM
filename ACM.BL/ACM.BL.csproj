@@ -41,10 +41,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Address.cs" />
+    <Compile Include="AddressRepository.cs" />
+    <Compile Include="BusinessCustomer.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="CustomerRepository.cs" />
+    <Compile Include="EnitityBase.cs" />
     <Compile Include="Order.cs" />
+    <Compile Include="OrderItem.cs" />
+    <Compile Include="OrderRepository.cs" />
     <Compile Include="Product.cs" />
+    <Compile Include="ProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Acme.Common\Acme.Common.csproj">
+      <Project>{2be47d87-5229-4681-ad9a-c0654cce5cd5}</Project>
+      <Name>Acme.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
